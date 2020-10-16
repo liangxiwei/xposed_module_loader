@@ -1,6 +1,7 @@
 package com.wind.xposed.entry;
 
 import com.wind.xposed.entry.hooker.PackageSignatureHooker;
+import com.wind.xposed.entry.hooker.ReflectHooker;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
@@ -19,5 +20,6 @@ public class XposedHookLoadPackageInner implements IXposedHookLoadPackage {
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         new PackageSignatureHooker().handleLoadPackage(lpparam);
+        new ReflectHooker().handleLoadPackage(lpparam);
     }
 }
